@@ -7,21 +7,79 @@
 </head>
 <body>
     <div class="global-wrapper">
-        <div style="width:300px;"></div>
+        <div class="sidebar"></div>
         <div class="main-wrapper">
-            <h1 class="title">How to use CHDMAN</h1>
-            <span class="subtitle">
+            <h1>How to use CHDMAN</h1>
+            <div class="subtitle">
                 Tutorial
                 <br>
                 Posted: November 1, 2025 by Luke Hagan
-            </span>
-            <p class="body-text">
+            </div>
+            <p>
                 The CHD (Compressed Hunks of Data) file format is adored by many emulation enthusiasts and gaming archivists because of its exceptional compression. However, the program used to create them is operated exclusively through a command-line interface, so it may seem daunting
                 to anyone without the technical know-how. CHDMAN was originally made for the MAME emulator to handle the hard-drive contents of certain arcade machines, but it has since been adopted by other emulators because of its lossless compression. 
                 <br>
                 This tutorial will show you how to pack .cue, .iso and .gdi files into a .chd file, as well as how to unpack them from a .chd file.
             </p>
-            <img src="chdman.png" alt="Screenshot of a folder containing chdman.exe">
+            <img src="images\chdman.png" alt="[Screenshot of a directory containing chdman.exe]">
+            <div class="line"></div>
+            <h1>How to setup CHDMAN</h1>
+            <p>
+                CHDMAN can be obtained by downloading the standalone MAME emulator, it should be found in the same directory as MAME.exe. However, if you aren't willing to download an entire emulator for the sake of a single program, you can download it from 
+                <a href="https://wiki.recalbox.com/en/tutorials/utilities/rom-conversion/chdman">here</a>. If you downloaded CHDMAN from that link, most of the setup should already be done (except for extracting from CHD to ISO see below). But I'll still go 
+                through the whole process just in case the link ends up dead.
+            </p>
+            <h2>CUE-GDI-ISO to CHD</h2>
+            <p>
+                1. Create a new text document in the same directory as chdman.exe <br>
+                2. Change the file extension from .txt to .bat (Ignore the warning) <br>
+                3. Open it with a text editor (i.e. Notepad) then insert the following: <br>
+                <span class="highlight">for /r %%i in (*.cue, *.gdi, *.iso) do chdman createcd -i "%%i" -o "%%~ni.chd"</span> <br>
+                4. Save the file as: <b>CUE-GDI-ISO to CHD.bat</b><br>
+            </p>
+            <h2>Extract CHD to CUE</h2>
+            <p>
+                1. Create a new text document in the same directory as chdman.exe <br>
+                2. Change the file extension from .txt to .bat (Ignore the warning) <br>
+                3. Open it with a text editor then insert the following: <br>
+                <span class="highlight">for /r %%i in (*.chd) do chdman extractcd -i "%%i" -o "%%~ni.cue"</span> <br>
+                4. Save the file as: <b>Extract CHD to CUE.bat</b><br>
+            </p>
+            <h2>Extract CHD to GDI</h2>
+            <p>
+                1. Create a new text document in the same directory as chdman.exe <br>
+                2. Change the file extension from .txt to .bat (Ignore the warning) <br>
+                3. Open it with a text editor then insert the following: <br>
+                <span class="highlight">for /r %%i in (*.chd) do chdman extractcd -i "%%i" -o "%%~ni.gdi"</span> <br>
+                4. Save the file as: <b>Extract CHD to GDI.bat</b><br>
+            </p>
+            <h2>Extract CHD to ISO</h2>
+            <p>
+                1. Create a new text document in the same directory as chdman.exe <br>
+                2. Change the file extension from .txt to .bat (Ignore the warning) <br>
+                3. Open it with a text editor then insert the following: <br>
+                <span class="highlight">for %%i in (*.chd) do (chdman extractcd -i "%%i" -o "%%~ni.cue" -ob "%%~ni.iso" del "%%~ni.cue") </span> <br>
+                4. Save the file as: <b>Extract CHD to ISO.bat</b><br>
+            </p>
+            <div class="line"></div>
+            <h1>Using CHDMAN</h1>
+            <p>
+                At this point, you should have everything you need to start creating .chd files. If your ROM files come with multiple .bin files, make sure they have the exact same name as the .cue or .gdi file. It is possible to process multiple different ROMs in one go.
+            </p>
+            <img src="images/chdman-xenogears.png" alt="[Screenshot of a directory containing files from the previous steps with .bin and .cue files containing Xenogears for the PS1]">
+            <h3>Compress to CHD file</h3>
+            <p>
+                Put your .bin files with its respective .cue or .gdi files in the same directory as chdman.exe as shown above. Click on <b>"CUE-GDI-ISO to CHD.bat"</b> to begin compressing the files. This operation is very CPU intensive, so your processor may heat up quickly.
+            </p>
+            <h3>Extracting from CHD file</h3>
+            <p>
+                If you want to patch your game, you'll find that you need a file format such as .iso or .cue. Thanks to CHDMAN's lossless compression you can unpack the CHD into any of these three file formats regardless of what format it was originally. All you need to do
+                is to click the appropriate <b>"Extract CHD to *.bat"</b> file.
+            </p>
+            <br>
+            <h3>Sources:</h3>
+            <a href="https://wiki.recalbox.com/en/tutorials/utilities/rom-conversion/chdman">Recalbox Wiki</a> <br>
+            <a href="https://www.reddit.com/r/Roms/comments/15wxq5h/comment/jx3fhgb/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">DisastrousFill on Reddit</a>
         </div>
         <aside class="sidebar">
             <div class="navigation">
