@@ -4,11 +4,23 @@
     <title>Miscellaneous Tutorials</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko">
+    <script src="tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#editor',
+            license_key: 'gpl'
+        });
+    </script>
 </head>
 <body>
     <div class="global-wrapper">
         <div class="sidebar"></div>
         <div class="main-wrapper">
+            <form method="post">
+                <textarea id="editor"></textarea>
+            </form>
+            <button id="submit">Submit</button>
+            <div id="comments"></div>
         </div>
         <aside class="sidebar">
             <div class="navigation">
@@ -19,5 +31,7 @@
         </aside>
     </div>
     <div class="footer">Nothing left!</div>
+
+    <script src="guestbook.js"></script>
 </body>
 </html>
