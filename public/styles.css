@@ -33,6 +33,13 @@ body
     line-height: 1.5;
 }
 
+.main-wrapper pre
+{
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
 .main-wrapper br
 {
     display: block;
@@ -64,24 +71,26 @@ body
 .header
 {
     display: block;
-    height: 200px;
-    background-image: url(images/questionmarks.jpg);
-    background-size: 200px;
-    background-attachment: scroll;
-    background-position: center center;
-    background-repeat: repeat;
-    background-color: rgba(255,255,255,0.7);
-    background-blend-mode: lighten;
+    height: 160px;
+    padding: 20px;
+    background-color: #FFFFFF;
     border-radius: 25px;
     border: #000d4e 1px solid;
+    text-align: center;
 }
 
 .site-name
 {
-    display: inline-block;
-    margin: 20px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     color: #000000;
-    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
     text-decoration: none;
 }
 
@@ -127,6 +136,37 @@ body
 }
 
 .navigation-button:hover
+{
+    background-color: gray;
+}
+
+.favorite
+{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: right;
+    align-items: right;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+#favorite-button
+{
+    box-sizing: inherit;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    color: #FFFFFF;
+    border: 0px;
+    border-radius: 25px;
+    background-color: #222222;
+    font-family: sans-serif; 
+}
+
+#favorite-button:hover
 {
     background-color: gray;
 }

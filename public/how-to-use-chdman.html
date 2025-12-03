@@ -6,8 +6,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko">
 </head>
 <body>
+    <a href="index.html" class="site-name"><b>Miscellaneous Tutorials</b></a>
     <div class="global-wrapper">
-        <div class="sidebar"></div>
+        <div class="sidebar">
+            <div class="favorite">
+                <button id="favorite-button">❤️ Favorite <span id="favorite-count">0</span></button>
+            </div>
+        </div>
         <div class="main-wrapper">
             <h1>How to use CHDMAN</h1>
             <div class="subtitle">
@@ -90,5 +95,8 @@
         </aside>
     </div>
     <div class="footer">Nothing left!</div>
+
+    <script> const POST_ID="post-1"; </script>
+    <script src="favorite.js"></script>
 </body>
 </html>
